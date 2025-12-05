@@ -1,3 +1,6 @@
+import os
+import sys
+
 import tpqoa
 from datetime import datetime
 
@@ -19,10 +22,17 @@ if __name__ == "__main__":
     while True:
 
         # step 1 ensure they have this
-        cfg = "oanda.cfg"
+        cfg = os.environ.get("OANDA_CONFIG", "oanda.cfg")
+        if not os.path.exists(cfg):
+            print(
+                f"Configuration file '{cfg}' not found. "
+                "Create it with your account_id and access_token (see README) "
+                "or set OANDA_CONFIG to point to the correct path."
+            )
+            sys.exit(1)
 
         # step 1.5 open oanda connection
-        oanda = tpqoa.tpqoa("oanda.cfg")
+        oanda = tpqoa.tpqoa(cfg)
 
         # step 2 decide instrument
 

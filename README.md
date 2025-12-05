@@ -150,6 +150,10 @@ These values need to be put into a configuration file, with the name `oanda.cfg`
 
 **Place the oanda.cfg file into the same directory as the main.py file in the cloned repository folder.**
 
+You can copy `oanda.example.cfg` in this repository as a starting point and replace the placeholder values. If you prefer to
+store the configuration elsewhere, set the `OANDA_CONFIG` environment variable to the full path of your config file before
+running the bot.
+
 After cloning the repo, run `pip install -r requirements.txt` to get the required packages.
 
 ### Running the application
